@@ -1,0 +1,13 @@
+#!/bin/sh
+
+cd /tmp/
+wget <%= @url -%>
+
+cd /opt/
+mkdir seafile
+mv /tmp/<%= @filename -%>
+cd seafile
+tar -xzf <%= @filename -%>
+mkdir installed
+mv <%= @filename -%> installed
+
