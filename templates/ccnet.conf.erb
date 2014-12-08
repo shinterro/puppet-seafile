@@ -1,0 +1,25 @@
+# Controlled by puppet
+
+[General]
+USER_NAME = cactus-cloud
+ID = f9cb888189f8b8923aec29901bc7192a5f6433f9
+NAME = cactus-cloud
+SERVICE_URL = https://104.131.101.23:8000
+
+[Network]
+PORT = %= @network_port -%>
+
+[Client]
+PORT = %= @client_port -%>
+
+<% if @mysql %>
+[Database]
+ENGINE = mysql
+HOST = 127.0.0.1
+PORT = 3306
+USER = <%= @sql_user -%>
+PASSWD = <%= @sql_password -%> 
+DB = <% @sql_ccnet_db -%>
+CONNECTION_CHARSET = utf8
+<% end -%>
+
