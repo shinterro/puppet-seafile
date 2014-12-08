@@ -1,0 +1,15 @@
+{
+  "name": "puppet-seafile",
+  "author": "sneakycactus",
+  "dependencies": [],
+  "license": "Apache 2.0",
+  "project_page": "https://github.com/sneakycactus/puppet-seafile",
+  "source": "https://github.com/sneakycactus/puppet-seafile.git",
+  "summary": "Seafile Server Puppet Module",
+   "requirements": [],
+  "operatingsystem_support": [],
+  "tags": [
+  	"seafile"
+  ],
+  "version": "0.1.0"
+}
