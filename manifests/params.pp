@@ -13,8 +13,8 @@ class   seafile::params {
   }
   $release_ver     = "3.1.7"
   $source          = "https://bitbucket.org/haiwen/seafile/downloads/"
-  $url             = "${source}seafile-${release_ver}_x86-64.tar.gz" # TODO - Add 32-Bit flag
-  $filename        = "seafile-${releasever}_x86-64.tar.gz" # Destination
+  $filename        = "seafile-${release_ver}_x86-64.tar.gz" # Destination
+  $url             = "${source}${filename}" # TODO - Add 32-Bit flag
   $webserver       = "nginx"
   $servername      = "localhost"
   $server_ip       = "127.0.0.1"
