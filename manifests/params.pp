@@ -16,7 +16,7 @@ class   seafile::params {
   $filename        = "seafile-${release_ver}_x86-64.tar.gz" # Destination
   $url             = "${source}${filename}" # TODO - Add 32-Bit flag
   $webserver       = "nginx"
-  $servername      = "localhost"
+  $servername      = "seafile"
   $server_ip       = "127.0.0.1"
   $config_seafile  = false # May not need
   $ssl             = false # Cert Support Flag

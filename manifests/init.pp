@@ -7,8 +7,8 @@
 class seafile (
   $releasever      = $::seafile::params::releasever,
   $source          = $::seafile::params::source,
-  $url             = $::seafile::params::url,
   $filename        = $::seafile::params::filename,
+  $url             = $::seafile::params::url,
   $webserver       = $::seafile::params::webserver,
   $servername      = $::seafile::params::servername,
   $server_ip       = $::seafile::params::server_ip,
@@ -42,7 +42,7 @@ class seafile (
   
   class { 'seafile::install': } ->
   class { 'seafile::config': } ->
-  Class['seafile']
+  class { 'seafile::service': }
 }
 
   # TODO - Make sure version changes are idempotent
