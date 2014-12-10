@@ -11,10 +11,15 @@ class   seafile::params {
       fail("Module X not yet supported on ${::operatingsystem}")
     }
   }
-  $release_ver     = "3.1.7"
+  
   $source          = "https://bitbucket.org/haiwen/seafile/downloads/"
-  $filename        = "seafile-${release_ver}_x86-64.tar.gz" # Destination
-  $url             = "${source}${filename}" # TODO - Add 32-Bit flag
+  $type            = "seafile-server" # Possible client use?
+  $release_ver     = "3.1.7"
+  $arch            = "_x86-64" # "_i386" # TODO - Add 32-Bit flag
+  $zip             = ".tar.gz"
+  $filename        = "${type}_${release_ver}${arch}${zip}" # Destination
+  $foldername      = "${type}-${release_ver}"
+  $url             = "${source}${filename}" 
   $webserver       = "nginx"
   $servername      = "seafile"
   $server_ip       = "127.0.0.1"
@@ -51,8 +56,7 @@ class   seafile::params {
   #$media_location  = "/home/cactus/seafile/seafile-server-3.1.6/seahub"
   $seafile_data_dir = "/seafile-server-latest/seahub"
   
-  # TODO - Set rational default location.
-  # TODO - add ln -s operation to link version.
+ 
   # TODO - Add cert support.
 
 

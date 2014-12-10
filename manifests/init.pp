@@ -5,8 +5,11 @@
 # Requires mysql, python2.7, nginx
 
 class seafile (
-  $releasever      = $::seafile::params::releasever,
   $source          = $::seafile::params::source,
+  $type            = $::seafile::params::type,
+  $releasever      = $::seafile::params::releasever,
+  $arch            = $::seafile::params::arch,
+  $zip             = $::seafile::params::zip,
   $filename        = $::seafile::params::filename,
   $url             = $::seafile::params::url,
   $webserver       = $::seafile::params::webserver,
@@ -40,9 +43,9 @@ class seafile (
   
   #validate_bool($nginx)
   
-  class { 'seafile::install': } ->
-  class { 'seafile::config': } ->
-  class { 'seafile::service': }
+  class { 'seafile::install': } #->
+  #class { 'seafile::config': } ->
+  #class { 'seafile::service': }
 }
 
   # TODO - Make sure version changes are idempotent
