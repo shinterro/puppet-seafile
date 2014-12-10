@@ -1,13 +1,22 @@
 #!/bin/sh
 
-cd /tmp/
-wget <%= @url -%>
+FILE="<%= @type -%>_<%= @release_ver -%><%= @arch -%><%= @zip -%>"
+FOLDER="<%= @type -%>-<%= @release_ver -%>"
+DOWNLOAD="<%= @source -%>$FILE"
+LATEST="seafile-server-latest"
 
-cd /opt/
-mkdir seafile
-mv /tmp/<%= @filename -%>
-cd seafile
-tar -xzf <%= @filename -%>
-mkdir installed
-mv <%= @filename -%> installed
+# Acquire and extract download into /tmp.
+cd /tmp/
+wget $DOWNLOAD
+tar -xzf $FILE
+
+# Move extracted folder into place
+mv /tmp/$FOLDER /opt/seafile/$FOLDER
+
+# Rename to latest
+#mv /tmp/$FOLDER /opt/seafile/$LATEST
+
+# Store downloaded file
+mkdir -p <%= @install_dir -%>/installed
+mv $FILE <%= @install_dir -%>/installed
 
