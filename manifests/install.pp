@@ -21,14 +21,14 @@ define tarball($pkg_tgz, $module_name, $install_dir) {
     }
 }
 
-
+ 
 class seafile::install {
+
+  package { "python-setuptools":
+    ensure => "installed"
+  }
+
 # TODO - Find package solution for CentOS 7.
-
-#  package { "python-setuptools":
-#    ensure => "installed"
-#  }
-
 #  package { "python-imaging":
 #    ensure => "installed"
 #  }

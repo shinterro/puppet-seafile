@@ -43,8 +43,8 @@ class seafile (
   
   #validate_bool($nginx)
   
-  class { 'seafile::install': } #->
-  #class { 'seafile::config': } ->
+  class { 'seafile::install': } ->
+  class { 'seafile::config': } #->
   #class { 'seafile::service': }
 }
 

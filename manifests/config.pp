@@ -1,6 +1,6 @@
 class seafile::config {
   
-  file { "${seafile::install_dir}/ccnet.conf":
+  file { "${seafile::params::install_dir}/ccnet.conf":
     ensure  => present,
     replace => false, # TODO - Review Consequences of replace
     owner   => $seafile::params::seaf_user,
@@ -8,7 +8,7 @@ class seafile::config {
     mode    => '0644', # TODO - Review permissions.
     content => template("seafile/ccnet.conf.erb"),
   }
-  file { "${seafile::install_dir}/seafdav.conf":
+  file { "${seafile::params::install_dir}/seafdav.conf":
     ensure  => present,
     replace => false,
     owner   => $seafile::params::seaf_user,
@@ -16,7 +16,7 @@ class seafile::config {
     mode    => '0644',
     content => template("seafile/seafdav.conf.erb"),
   }
-  file { "${seafile::install_dir}seahub_settings.py":
+  file { "${seafile::params::install_dir}seahub_settings.py":
     ensure  => present,
     replace => false,
     owner   => $seafile::params::seaf_user,
@@ -45,16 +45,17 @@ class seafile::config {
   }
   
   # Will likely replace with nginx module configs.
-  if $seafile::params::webserver == 'nginx' {
-    file { "/etc/nginx/conf.d/seafile.conf":
-      ensure  => present,
-      replace => false,
-      owner   => 'seaf',
-      group   => 'seaf',
-      mode    => '0644',
-      content => template("seafile/seafile.conf.erb"),
-    }
-  }
+  #if $seafile::params::webserver == 'nginx' {
+  #  file { "/etc/nginx/conf.d/seafile.conf":
+  #    ensure  => present,
+  #    replace => false,
+  #    owner   => 'seaf',
+  #    group   => 'seaf',
+  #    mode    => '0644',
+  #    content => template("seafile/seafile.conf.erb"),
+  #  }
+  #}
 }
 
+# TODO - Creat user seafile, or other specified user.
 
