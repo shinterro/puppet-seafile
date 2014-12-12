@@ -1,26 +1,36 @@
 class seafile::config {
   
+  user { "${seafile::params::seaf_db_user}":
+    ensure => present,
+    gid    => $seafile::params::seaf_db_group,
+  }
+  
+  group { "${seafile::params::seaf_db_group}":
+    ensure => present,
+  }
+  
   file { "${seafile::params::install_dir}/ccnet.conf":
     ensure  => present,
-    replace => false, # TODO - Review Consequences of replace
-    owner   => $seafile::params::seaf_user,
-    group   => $seafile::params::seaf_user,
+    replace => true, # TODO - Review Consequences of replace
+    owner   => $seafile::params::seaf_db_user,
+    group   => $seafile::params::seaf_db_group,
     mode    => '0644', # TODO - Review permissions.
     content => template("seafile/ccnet.conf.erb"),
   }
   file { "${seafile::params::install_dir}/seafdav.conf":
     ensure  => present,
     replace => false,
-    owner   => $seafile::params::seaf_user,
-    group   => $seafile::params::seaf_user,
+    owner   => $seafile::params::seaf_db_user,
+    group   => $seafile::params::seaf_db_group,
     mode    => '0644',
     content => template("seafile/seafdav.conf.erb"),
   }
-  file { "${seafile::params::install_dir}seahub_settings.py":
+  notify{"Install dir is: ${seafile::params::install_dir}": }
+  file { "${seafile::params::install_dir}/seahub_settings.py":
     ensure  => present,
     replace => false,
-    owner   => $seafile::params::seaf_user,
-    group   => $seafile::params::seaf_user,
+    owner   => $seafile::params::seaf_db_user,
+    group   => $seafile::params::seaf_db_group,
     mode    => '0644',
     content => template("seafile/seahub_settings.py.erb"),
   }

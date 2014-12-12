@@ -17,9 +17,9 @@ class   seafile::params {
   $release_ver     = "3.1.7"
   $arch            = "_x86-64" # "_i386" # TODO - Add 32-Bit flag
   $zip             = ".tar.gz"
-  $filename        = "${type}_${release_ver}${arch}${zip}" # Destination
-  $foldername      = "${type}-${release_ver}"
-  $url             = "${source}${filename}" 
+  #$filename        = "${type}_${release_ver}${architecture}${zip}" # Destination
+  #$foldername      = "${type}-${release_ver}"
+  #$url             = "${source}${filename}" 
   $webserver       = "nginx"
   $servername      = "seafile"
   $server_ip       = "127.0.0.1"
@@ -50,6 +50,7 @@ class   seafile::params {
   $seahub_db       = "seahub-db"
   $ccnet_db        = "ccnet-db"
   $seaf_db_user    = "seafile"
+  $seaf_db_group   = "seafile"
   $seaf_db_pass    = "password1234"
  
   # Media content location

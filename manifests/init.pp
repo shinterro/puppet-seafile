@@ -46,6 +46,7 @@ class seafile (
   class { 'seafile::install': } ->
   class { 'seafile::config': } #->
   #class { 'seafile::service': }
+
 }
 
   # TODO - Make sure version changes are idempotent
